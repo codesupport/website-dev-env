@@ -1,4 +1,4 @@
-frontend/frontend-website
-backend/backend-website
+frontend/website-frontend/
+backend/website-backend/
 .DS_Store
 .env
