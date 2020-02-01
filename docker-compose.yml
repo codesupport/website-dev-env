@@ -1,5 +1,8 @@
 version: "3.4"
 
+volumes:
+  node_modules:
+
 services:
   frontend:
     build:
@@ -8,19 +11,24 @@ services:
     volumes:
       - ./frontend/website-frontend:/usr/src/app
       - ./frontend/run.sh:/usr/src/app/run.sh
+      - node_modules:/usr/src/app/node_modules
+    depends_on:
+      - backend
     ports:
       - 3000:3000
-
-
-
-
-
-
-  # backend:
-  #   build:
-  #     context: ./
-  #     dockerfile: docker/Dockerfile
-  #   env_file:
-  #     - .env
-  #   ports:
-  #     - 8080:8080
+  backend:
+    build:
+      context: ./
+      dockerfile: ./backend/Dockerfile
+    volumes:
+      - ./backend/website-backend/src:/usr/src/app/src
+      - ./backend/website-backend/.mvn:/usr/src/app/.mvn
+      - ./backend/website-backend/mvnw:/usr/src/app/mvnw
+      - ./backend/website-backend/mvnw.cmd:/usr/src/app/mvnw.cmd
+      - ./backend/website-backend/pom.xml:/usr/src/app/pom.xml
+      - ./backend/website-backend/.gitignore:/usr/src/app/.gitignore
+      - ./backend/run.sh:/usr/src/app/run.sh
+    env_file:
+      - .env
+    ports:
+      - 8082:8082

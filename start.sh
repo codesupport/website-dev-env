@@ -9,7 +9,9 @@ if [ ! -d "website-frontend" ]
 then
     git clone https://github.com/codesupport/website-frontend.git
 else
+    cd website-frontend
     git pull
+    cd ..
 fi
 
 cd ..
@@ -23,8 +25,12 @@ if [ ! -d "website-backend" ]
 then
     git clone https://github.com/codesupport/website-backend.git
 else
+    cd website-backend
     git pull
+    cd ..
 fi
+
+cd ..
 
 # Start docker containers
 #########################
