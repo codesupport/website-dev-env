@@ -8,7 +8,11 @@ This repo is aimed to increase the ease of development with the CodeSupport webs
 
 ## Getting started
 
-Getting started is really quite simple, its just a case of running the `./start.sh` script
+Firstly we need to create an OAuth2 application with discord [here](https://discordapp.com/developers/applications/#top) to be able to connect to the discord API. Once you have created a new application make note of the client ID and client secret.
+
+In the project there is an `example.env` file, we need to copy this and rename it to `.env`. This is the env file the backend will use. In the env file `DISCORD_APP_ID` and `DISCORD_APP_SECRET` are both blank, we need to fill these in with the values from the previous step.
+
+From here getting started is really quite simple, its just a case of running the `./start.sh` script
 
 ```
 $ ./start.sh
