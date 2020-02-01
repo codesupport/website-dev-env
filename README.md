@@ -16,6 +16,13 @@ $ ./start.sh
 
 This will clone each respective project into the frontend and backend projects, and build the required docker containers.
 
+To view the site once everything has loaded direct your browser to http://localhost:3000
+To view the backend swagger documentation direct your browser to http://localhost:8080/swagger-ui.html
+
+### Optional
+
+If you wish to make the frontend wait until the backend has started and is ready to receive connections navigate to run.sh in frontend/ and uncomment lines 6-8.
+
 ## Additional links
 
 [CodeSupport frontend](https://github.com/codesupport/website-frontend)
